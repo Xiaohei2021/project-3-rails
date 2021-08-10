@@ -2,6 +2,9 @@ Rails.application.routes.draw do
 
   root 'sessions#home'
 
+  get '/signup', to: "users#new"
+	post '/signup', to: "users#create"
+ 
   resources :publishers
   resources :users
   resources :reviews

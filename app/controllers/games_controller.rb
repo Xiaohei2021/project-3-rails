@@ -13,7 +13,7 @@ class GamesController < ApplicationController
         # binding.pry
         @game = Game.new(game_params)
         if @game.save
-            redirect_to game
+            redirect_to @game
         else
             render :new
         end
