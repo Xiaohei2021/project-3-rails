@@ -1,0 +1,13 @@
+<h1>Please complete the fields below to create an account</h1>
+
+<%= form_for @user do |f| %>
+    
+    <%= f.label "Please enter your e-mail" %>
+    <%= f.text_field :email%> <br><br>
+    <%= f.label "Please create Username:" %>
+    <%= f.text_field :username%><br><br>
+    <%= f.label "Please enter your password:"%>
+    <%= f.password_field :password %><br><br>
+    <%= f.submit "Create User" %>
+
+<% end %>

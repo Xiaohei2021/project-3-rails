@@ -1,0 +1,16 @@
+<h1>Please complete the fields below to Add a New Game</h1>
+
+<%= form_for @game do |f| %>
+    
+    <%= f.label "Please enter the game title" %>
+    <%= f.text_field :title%> <br><br>
+
+    <%= f.label "Please enter the game category:" %>
+    <%= f.text_field :categories%><br><br>
+
+    <!-- <%= f.label "Please enter your password:"%>
+    <%= f.password_field :password %><br><br> -->
+
+    <%= f.submit "Create game" %>
+
+<% end %>
