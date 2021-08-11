@@ -13,6 +13,8 @@
   <body>
     <div>
       <% if registered? %>
+        <%= link_to "Add Game", new_game_path %>
+        <%= link_to "Games Index", games_path %>
         <%= link_to "Log Out", logout_path, method: 'delete' %>
       <% else %>
         <%= link_to "Sign up", signup_path %> |
