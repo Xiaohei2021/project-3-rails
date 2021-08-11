@@ -11,13 +11,23 @@ class GamesController < ApplicationController
 
 
     def new
-        @game = Game.new
+        if params[:publisher_id] && @publisher.find_by_id(params[:publisher_id])            
+            @game = @publisher.games.build
+        else
+            @game = Game.new
+            @game.build_publisher
+        end
     end
 
     def create
         # byebug
         # binding.pry
         @game = Game.new(game_params)
+        
+        if params[:publisher_id]
+            @publisher = Publisher.find_by_id(params[:publisher_id])
+        end
+        
         if @game.save
             redirect_to games_path
         else

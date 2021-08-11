@@ -14,9 +14,9 @@ class PublishersController < ApplicationController
     end
 
     def create
-        # byebug
-        # binding.pry
+    
         @publisher = Publisher.new(publisher_params)
+       
         if @publisher.save
             redirect_to publishers_path
         else
@@ -29,6 +29,6 @@ class PublishersController < ApplicationController
     private
     
     def publisher_params
-        params.require(:publisher).permit(:name, :formation, :publisher_id, publisher_attribute: [:name, :formation, :based_in, :awards ])
+        params.require(:publisher).permit(:name, :formation, :based_in, :awards ])
     end
 end

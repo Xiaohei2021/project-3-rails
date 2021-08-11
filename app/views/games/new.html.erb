@@ -1,6 +1,6 @@
 <h1>Please complete the fields below to Add a New Game</h1>
 
-<%= form_for(@game) do |g| %>
+<%= form_for([@publisher, @game]) do |g| %>
     
     <%= g.label "Please enter the game title" %><br>
     <%= g.text_field :title%> <br><br>
