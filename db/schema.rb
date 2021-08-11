@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_10_003113) do
+ActiveRecord::Schema.define(version: 2021_08_11_171048) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
-    t.string "categories"
-    t.integer "props"
-    t.integer "boos"
+    t.string "genre"
     t.integer "maker_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -37,6 +35,8 @@ ActiveRecord::Schema.define(version: 2021_08_10_003113) do
     t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "props"
+    t.integer "boos"
   end
 
   create_table "users", force: :cascade do |t|

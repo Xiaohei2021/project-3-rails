@@ -11,9 +11,9 @@ class GamesController < ApplicationController
     def create
         # byebug
         # binding.pry
-        @game = Game.new(game_params)
+        @game = current_user.games.build(game_params)
         if @game.save
-            redirect_to @game
+            redirect_to games_path
         else
             render :new
         end

@@ -4,15 +4,18 @@ class SessionsController < ApplicationController
   end
   
   def new
-    @user = User.new
+    user = User.new
   end
 
   def create
-    if @user = User.find_by(username: params[:user][:username])
-      session[:user_id] = @user.id    
-      redirect_to user_path(@user)
+    byebug
+    user = User.find_by(username: params[:user][:username])
+      if user && user.authenticate(params[:user][:password])
+        session[:user_id] = user.id
+        redirect_to user_path(user)
     else
-      render 'new'
+      flash[:message] = "Log In Failed, please try again"
+      redirect_to "/login"
     end
   end
 

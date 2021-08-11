@@ -1,4 +1,15 @@
 <h1>Login page</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
 
-< >
+<%= flash[:message] if flash[:message] %>
+
+<%= form_for(user) do |f| %>
+    
+    <%= f.label "Please enter your Username:" %>
+    <%= f.text_field :username %><br><br>
+
+    <%= f.label "Please enter your password:" %>
+    <%= f.password_field :password %><br><br>
+    
+    <%= f.submit "Log In" %>
+
+<% end %>
