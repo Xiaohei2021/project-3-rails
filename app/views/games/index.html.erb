@@ -1,7 +1,6 @@
 <h1>Here are all the games</h1>
-
         
-<%= @games.each do |game|  %>
+<% @games.each do |game|  %>
     <%= game.title %>
-    <%= game.categories %>
-<% end  %>
+    <%= game.genre %>
+<% end %>

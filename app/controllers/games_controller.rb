@@ -4,6 +4,11 @@ class GamesController < ApplicationController
         @games = Game.all
     end
 
+    def show
+        @game =  Game.find_by_id(params[:id])
+    end
+
+
     def new
         @game = Game.new
     end
@@ -11,7 +16,7 @@ class GamesController < ApplicationController
     def create
         # byebug
         # binding.pry
-        @game = current_user.games.build(game_params)
+        @game = Game.new(game_params)
         if @game.save
             redirect_to games_path
         else
@@ -19,14 +24,11 @@ class GamesController < ApplicationController
         end
     end
 
-    def show
-        @game =  Game.find_by(params[:id])
-    end
 
 
     private
     
     def game_params
-        params.require(:game).permit(:title, :categories)
+        params.require(:game).permit(:title, :genre)
     end
 end

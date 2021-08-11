@@ -1,10 +1,8 @@
 <h1>You have selected <%= @game%>, here are all the availabel information for this game </h1>
 
-        
-<%= form_for @games.each do |game|  %>
     <%= game.title %>
-    <%= game.categories %>
-<% end  %>
+    <%= game.genre %>
+
 
 #game should have 2 ratings
     #rating 1. For age group (Game table)
