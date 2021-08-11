@@ -1,6 +1,6 @@
 class GamesController < ApplicationController
-    before_action: redirect_if_not_registered
-    
+    before_action :redirect_if_not_registered
+
     def index 
         @games = Game.all
     end

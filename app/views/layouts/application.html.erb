@@ -11,6 +11,15 @@
   </head>
 
   <body>
+    <div>
+      <% if registered? %>
+        <%= link_to "Log Out", logout_path, method: 'delete' %>
+      <% else %>
+        <%= link_to "Sign up", signup_path %> |
+        <%= link_to "Log In", login_path %> |
+      <% end %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
