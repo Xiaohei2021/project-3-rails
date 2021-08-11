@@ -2,11 +2,14 @@
 
 <%= form_for(@game) do |g| %>
     
-    <%= g.label "Please enter the game title" %>
+    <%= g.label "Please enter the game title" %><br>
     <%= g.text_field :title%> <br><br>
 
-    <%= g.label "Please enter the game genre:" %>
+    <%= g.label "Please enter the game genre:" %><br>
     <%= g.text_field :genre %><br><br>
+
+    <%= g.label "publisher"%> <br>
+    <%= g.collection_select :publisher_id, Publisher.all, :id, :name%>
 
     <%= g.submit %>
 <% end %>

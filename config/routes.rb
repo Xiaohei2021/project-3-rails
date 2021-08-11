@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get '/signup', to: "users#new"
 	post '/signup', to: "users#create"
 
-  get '/auth/facebook/callback' => 'sessions#create' 
-  get '/auth/github/callback', to: 'sessions#create'  
+  # get '/auth/facebook/callback' => 'sessions#create' 
+  # get '/auth/github/callback', to: 'sessions#create'  
 
   resources :users
 
