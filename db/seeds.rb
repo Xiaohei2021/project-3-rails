@@ -6,12 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-User.find_or_create_by(username: "dummy1", password: "123") 
-User.find_or_create_by(username: "dummy2", password: "456") 
-User.find_or_create_by(username: "dummy3", password: "789") 
 
-Game.find_or_create_by(title: "Dota 2", categories: "")
-Game.find_or_create_by(title: "Frost Punk", categories: "")
-Game.find_or_create_by(title: "Company of Heroes 2", categories: "")
-Game.find_or_create_by(title: "Don't starve", categories: "")
-Game.find_or_create_by(title: "Total War: Three Kingdoms", categories: "")
+Game.find_or_create_by(title: "Dota 2", genre: "g1")
+Game.find_or_create_by(title: "Frost Punk", genre: "g2")
+Game.find_or_create_by(title: "Company of Heroes 2", genre: "g3")
+Game.find_or_create_by(title: "Don't starve", genre: "g4")
+Game.find_or_create_by(title: "Total War: Three Kingdoms", genre: "g5")
