@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_11_234957) do
+ActiveRecord::Schema.define(version: 2021_08_12_020903) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 2021_08_11_234957) do
     t.integer "publisher_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "esrb_rating"
   end
 
   create_table "publishers", force: :cascade do |t|

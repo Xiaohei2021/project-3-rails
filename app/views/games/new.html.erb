@@ -2,11 +2,14 @@
 
 <%= form_for([@publisher, @game]) do |g| %>
     
-    <%= g.label "Please enter the game title" %><br>
+    <%= g.label "Please enter the game title:" %><br>
     <%= g.text_field :title%> <br><br>
 
     <%= g.label "Please enter the game genre:" %><br>
     <%= g.text_field :genre %><br><br>
+
+    <%= g.label "Please enter the game's ESRB Rating:" %><br>
+    <%= g.text_field :esrb_rating %><br><br>
     
     <h5>Please select a publisher</h5>
     <%= g.collection_select :publisher_id, Publisher.all, :id, :name%><br>
