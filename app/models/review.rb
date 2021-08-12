@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
-    belongs_to :games
-    belongs_to :users
+    belongs_to :game
+    belongs_to :user
+
+    # accepts_nested_attributes_for :user, reject_if: proc { |attributes| attributes["username"].blank? }
 end

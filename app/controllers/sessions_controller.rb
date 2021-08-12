@@ -29,25 +29,25 @@ class SessionsController < ApplicationController
     end
   end
 
-  def omniauth_github
-    # byebug
-    user = User.from_omniauth_github(auth)
-    if user.valid?
-        session[:user_id] = user.id
-        flash[:message] = "You are now logged in via Github"
-        redirect_to user_path(user)
-    end
-  end
+  # def omniauth_github
+  #   byebug
+  #   user = User.from_omniauth_github(auth)
+  #   if user.valid?
+  #       session[:user_id] = user.id
+  #       flash[:message] = "You are now logged in via Github"
+  #       redirect_to user_path(user)
+  #   end
+  # end
 
-  def omniauth_facebook
-    # byebug
-    user = User.from_omniauth_facebook(auth)
-    if user.valid?
-        session[:user_id] = user.id
-        flash[:message] = "You are now logged in via Facebook"
-        redirect_to user_path(user)
-    end
-  end
+  # def omniauth_facebook
+  #   # byebug
+  #   user = User.from_omniauth_facebook(auth)
+  #   if user.valid?
+  #       session[:user_id] = user.id
+  #       flash[:message] = "You are now logged in via Facebook"
+  #       redirect_to user_path(user)
+  #   end
+  # end
 
   def destroy
     session.delete(:user_id)
