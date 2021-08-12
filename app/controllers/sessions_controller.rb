@@ -21,11 +21,11 @@ class SessionsController < ApplicationController
 
   def omniauth_google
     # byebug
-    user = User.from_omniauth(auth)
+    user = User.from_omniauth_google(auth)
     if user.valid?
         session[:user_id] = user.id
         flash[:message] = "You are now logged in"
-        redirect_to user_path
+        redirect_to user_path(user)
     end
   end
 

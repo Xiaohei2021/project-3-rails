@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   # get '/auth/facebook/callback' => 'sessions#create' 
   # get '/auth/github/callback', to: 'sessions#create'  
-  get '/auth/google_oauth2/callback', to: 'sessions#omniauth' 
+  get '/auth/google_oauth2/callback', to: 'sessions#omniauth_google' 
 
   resources :users
 
