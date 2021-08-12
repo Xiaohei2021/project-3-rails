@@ -14,6 +14,22 @@ class User < ApplicationRecord
             u.password = SecureRandom.hex[15]
         end
     end
+
+    def self.from_omniauth_github(auth)
+        User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
+            u.email = auth['info']['email']
+            u.username = auth['info']['name']
+            u.password = SecureRandom.hex[15]
+        end
+    end
+
+    def self.from_omniauth_facebook(auth)
+        User.find_or_create_by(uid: auth['uid'], provider: auth['provider']) do |u|
+            u.email = auth['info']['email']
+            u.username = auth['info']['name']
+            u.password = SecureRandom.hex[15]
+        end
+    end
     
 
 end

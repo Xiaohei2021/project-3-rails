@@ -24,7 +24,27 @@ class SessionsController < ApplicationController
     user = User.from_omniauth_google(auth)
     if user.valid?
         session[:user_id] = user.id
-        flash[:message] = "You are now logged in"
+        flash[:message] = "You are now logged in via Google"
+        redirect_to user_path(user)
+    end
+  end
+
+  def omniauth_github
+    # byebug
+    user = User.from_omniauth_github(auth)
+    if user.valid?
+        session[:user_id] = user.id
+        flash[:message] = "You are now logged in via Github"
+        redirect_to user_path(user)
+    end
+  end
+
+  def omniauth_facebook
+    # byebug
+    user = User.from_omniauth_facebook(auth)
+    if user.valid?
+        session[:user_id] = user.id
+        flash[:message] = "You are now logged in via Facebook"
         redirect_to user_path(user)
     end
   end

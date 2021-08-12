@@ -9,15 +9,18 @@ Rails.application.routes.draw do
   get '/signup', to: "users#new"
 	post '/signup', to: "users#create"
 
-  # get '/auth/facebook/callback' => 'sessions#create' 
-  # get '/auth/github/callback', to: 'sessions#create'  
+  get '/auth/facebook/callback', to: 'sessions#omniauth_facebook' 
+  get '/auth/github/callback', to: 'sessions#omniauth_github'  
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth_google' 
 
-  resources :users
+  resources :users 
 
-  resources :reviews
+  resources :reviews 
 
-  resources :games
+  resources :games do
+    resources :games, only: [:index, :show]
+  end
+
 
   resources :publishers
   
