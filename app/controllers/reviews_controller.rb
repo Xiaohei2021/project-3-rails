@@ -1,6 +1,12 @@
 class ReviewsController < ApplicationController
     before_action :redirect_if_not_registered
-    
+    before_action :find_review, only: [:show, :destroy]
+
+    def index
+        @reviews = Review.all
+    end
+
+
     def new
         @game = Game.find_by_id(params[:game_id])
         #   byebug
@@ -24,7 +30,11 @@ class ReviewsController < ApplicationController
     end
 
     def show
-        @review = Review.find_by(id: params[:id])                
+    end
+
+    def destroy
+        @review.destroy
+        redirect_to reviews_path
     end
 
 
@@ -32,6 +42,11 @@ class ReviewsController < ApplicationController
     
     def review_params
         params.require(:review).permit(:comment, :game_id )
+    end
+
+    def find_review
+        @review = Review.find_by(id: params[:id])                
+
     end
 
 end

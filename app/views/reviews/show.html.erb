@@ -1,1 +1,7 @@
-<%= @review.comment %>
+<%= @review.props %><br>
+<%= @review.comment %><br>
+
+<%= @review.boos %><br>
+<%= @review.comment %><br>
+
+<%= link_to "Delete Review", review_path(@review), method: 'delete' %>

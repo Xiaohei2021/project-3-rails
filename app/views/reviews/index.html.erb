@@ -1,0 +1,3 @@
+<%= @reviews.each do |r| %>
+    <%= link_to r.comment, review_path(r) %><br>
+<% end %>
