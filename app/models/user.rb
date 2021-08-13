@@ -2,11 +2,9 @@ class User < ApplicationRecord
     has_many :reviews  
     has_many :games, through: :reviews
 
-    validates :email, presence: 
-    validates :email, uniqueness: 
-    validates :username, presence: true 
-    validates :username, uniqueness: { case_sensitive: false} 
-
+    validates :email, :username, presence: { message: "must be given please" }
+    validates :email,:username,  uniqueness:{ case_sensitive: false} 
+    
     has_secure_password
 
     def self.from_omniauth_google(auth)

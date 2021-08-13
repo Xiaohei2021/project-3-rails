@@ -28,6 +28,24 @@ class GamesController < ApplicationController
         end
     end
 
+    def edit
+        @game = Game.find_by_id(params[:id])
+    end
+
+    def update
+        @game = Game.find_by_id(params[:id])
+        if @game.valid?
+            @game.update(game_params)
+            redirect_to game_path(@game)
+        end
+    end
+
+
+    def destroy
+        @game.destroy
+        redirect_to games_path
+    end
+
 
 
     private

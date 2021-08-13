@@ -9,8 +9,8 @@ Rails.application.routes.draw do
   get '/signup', to: "users#new"
 	post '/signup', to: "users#create"
 
-  get '/auth/facebook/callback', to: 'sessions#omniauth_facebook' 
-  get '/auth/github/callback', to: 'sessions#omniauth_github'  
+  # get '/auth/facebook/callback', to: 'sessions#omniauth_facebook' 
+  # get '/auth/github/callback', to: 'sessions#omniauth_github'  
   get '/auth/google_oauth2/callback', to: 'sessions#omniauth_google' 
 
   resources :users 
