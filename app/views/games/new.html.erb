@@ -2,7 +2,7 @@
 
 <%= form_for([@publisher, @game]) do |g| %>
     
-    <%= g.label "Please enter the game title:" %><br>
+    <%= g.label "Please enter the game title:", required: true %><br>
     <%= g.text_field :title%> <br><br>
 
     <%= g.label "Please enter the game genre:" %><br>

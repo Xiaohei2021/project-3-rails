@@ -2,8 +2,10 @@ class User < ApplicationRecord
     has_many :reviews  
     has_many :games, through: :reviews
 
-    validates :email, presence: true, uniqueness: true
-    validates :username, presence: true
+    validates :email, presence: 
+    validates :email, uniqueness: 
+    validates :username, presence: true 
+    validates :username, uniqueness: { case_sensitive: false} 
 
     has_secure_password
 

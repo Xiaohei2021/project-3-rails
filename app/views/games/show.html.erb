@@ -4,8 +4,9 @@
     <%= @game.title %><br>
     <%= @game.genre %><hr><br>
     
+    <h3>Reviews for the game</h3>
     <%= @game.reviews.each do |review| %>
-        <%= review.comment %><hr><br>
+        <%= review.comment %> by <%= review.user.username %>  <hr><br>
     <% end %>
    
 

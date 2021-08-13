@@ -4,6 +4,9 @@ class Game < ApplicationRecord
 
     belongs_to :publisher
 
+    validates :title, :genre, :esrb_rating, :platform, presence: true
+    validates :title, uniqueness: true
+
     accepts_nested_attributes_for :publisher
 
     def publisher_attributes=(hash_of_attributes)
