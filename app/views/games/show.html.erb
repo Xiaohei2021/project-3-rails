@@ -1,10 +1,13 @@
 <h1>You have selected <%= @game.title%></h1>
 <h4>See below for all the availabel information and comment for this game: </h4>
 
-    <%= @game.title %><br>
-    <%= @game.genre %><hr><br>
+    Game: <%= @game.title %><br>
+    Game Genre: <%= @game.genre %><br>
+    Game ESRB Rating: <%= @game.esrb_rating %><br>
+    Game Platform: <%= @game.platform %><br>
     
 <%= link_to "Edit", edit_game_path(@game)%>
+<%= link_to "Delete", game_path(@game), method: 'delete' %>
 
     <h3>Reviews for the game</h3>
     <%= @game.reviews.each do |review| %>

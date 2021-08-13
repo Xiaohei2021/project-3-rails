@@ -1,20 +1,17 @@
 class GamesController < ApplicationController
     before_action :redirect_if_not_registered
+    before_action :find_game, only: [:show, :update, :edit, :destroy]
 
     def index 
         @games = Game.all
     end
 
     def show
-        @game =  Game.find_by_id(params[:id])
     end
 
-
     def new
-       
         @game = Game.new
         @game.build_publisher
-        
     end
 
     def create
@@ -29,11 +26,10 @@ class GamesController < ApplicationController
     end
 
     def edit
-        @game = Game.find_by_id(params[:id])
+
     end
 
     def update
-        @game = Game.find_by_id(params[:id])
         if @game.valid?
             @game.update(game_params)
             redirect_to game_path(@game)
@@ -41,7 +37,6 @@ class GamesController < ApplicationController
             render :edit
         end
     end
-
 
     def destroy
         @game.destroy
@@ -53,6 +48,10 @@ class GamesController < ApplicationController
     private
     
     def game_params
-        params.require(:game).permit(:title, :genre, :esrb_rating, :publisher_id, publisher_attributes: [:name, :formation, :based_in, :awards])
+        params.require(:game).permit(:title, :genre, :esrb_rating, :platform, :publisher_id, publisher_attributes: [:name, :formation, :based_in, :awards])
+    end
+
+    def find_game
+        @game = Game.find_by_id(params[:id])
     end
 end
