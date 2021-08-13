@@ -37,6 +37,8 @@ class GamesController < ApplicationController
         if @game.valid?
             @game.update(game_params)
             redirect_to game_path(@game)
+        else
+            render :edit
         end
     end
 
@@ -51,6 +53,6 @@ class GamesController < ApplicationController
     private
     
     def game_params
-        params.require(:game).permit(:title, :genre, :publisher_id, publisher_attributes: [:name, :formation, :based_in, :awards])
+        params.require(:game).permit(:title, :genre, :esrb_rating, :publisher_id, publisher_attributes: [:name, :formation, :based_in, :awards])
     end
 end

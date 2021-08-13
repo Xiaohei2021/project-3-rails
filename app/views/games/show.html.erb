@@ -4,6 +4,8 @@
     <%= @game.title %><br>
     <%= @game.genre %><hr><br>
     
+<%= link_to "Edit", edit_game_path(@game)%>
+
     <h3>Reviews for the game</h3>
     <%= @game.reviews.each do |review| %>
         <%= review.comment %> by <%= review.user.username %>  <hr><br>
