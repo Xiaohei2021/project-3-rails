@@ -1,11 +1,11 @@
 class PublishersController < ApplicationController
+    before_action: find_publisher, only: [:show, :edit, :update, :destroy]
 
     def index 
         @publishers = Publisher.all
     end
 
     def show
-        @publisher =  Publisher.find_by_id(params[:id])
     end
 
 
@@ -24,11 +24,31 @@ class PublishersController < ApplicationController
         end
     end
 
+    def edit
+    end
 
+    def update
+        if @publisher.valid?
+            @publisher.update(publisher_params)
+            redirect_to publisher_path(@publisher)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @publisher.destroy
+        redirect_to publishers_path
+    end
+    
 
     private
-    
+
     def publisher_params
         params.require(:publisher).permit(:name, :formation, :based_in, :awards)
+    end
+
+    def find_publisher
+        @publisher = publisher.find_by_id(params[:id])
     end
 end

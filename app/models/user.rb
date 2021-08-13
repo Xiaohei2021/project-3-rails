@@ -3,7 +3,7 @@ class User < ApplicationRecord
     has_many :games, through: :reviews
 
     validates :email, :username, presence: { message: "must be given please" }
-    validates :email,:username,  uniqueness:{ case_sensitive: false} 
+    validates :email,  uniqueness:{ case_sensitive: false} 
     
     has_secure_password
 

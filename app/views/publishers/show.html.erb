@@ -2,3 +2,6 @@
 
     <%= @publisher.name %><br>
     <%= @publisher.formation %><br>
+
+    <%= link_to "Edit", edit_publisher_path(@publisher)%>
+    <%= link_to "Delete", publisher_path(@publisher), method: 'delete' %>

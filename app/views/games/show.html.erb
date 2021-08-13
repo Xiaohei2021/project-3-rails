@@ -7,7 +7,9 @@
     Game Platform: <%= @game.platform %><br>
     
 <%= link_to "Edit", edit_game_path(@game)%>
+<%= link_to "Write a review", new_game_review_path(@game)%>
 <%= link_to "Delete", game_path(@game), method: 'delete' %>
+
 
     <h3>Reviews for the game</h3>
     <%= @game.reviews.each do |review| %>
