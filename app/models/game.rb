@@ -4,8 +4,9 @@ class Game < ApplicationRecord
 
     belongs_to :publisher
 
-    validates :title, :genre, :esrb_rating, :platform, presence: true
-    validates :title, uniqueness: true
+    validates :genre, :esrb_rating, :platform, presence: true
+    validates :title, presence: true, uniqueness: {case_sensitive: false}, length: {in: 2..50} 
+    validates :esrb_rating, numericality: {greater_than_or_equal_to: 0, less_than: 19}
 
     accepts_nested_attributes_for :publisher
 

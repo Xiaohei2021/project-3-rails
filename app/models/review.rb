@@ -3,7 +3,7 @@ class Review < ApplicationRecord
     belongs_to :user
 
 
-    validates :props, :boos, :pro_comment, :con_comment, presence: true
-    validates :pro_comment, :con_comment 
+    
+    validates :pro_comment, :con_comment, presence: true, length: {in: 2..80}
    
 end

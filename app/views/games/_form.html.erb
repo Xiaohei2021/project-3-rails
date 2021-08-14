@@ -1,0 +1,38 @@
+<% if @game.errors.any? %>
+<div id="error_explanation">
+  <h2><%= pluralize(@game.errors.count, "error") %> prohibited this game from being saved:</h2>
+
+  <ul>
+    <% @game.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+<%= form_for([@publisher, @game]) do |g| %>
+    
+    <%= g.label "Please enter the game title:", required: true %><br>
+    <%= g.text_field :title%> <br><br>
+
+    <%= g.label "Please enter the game genre:" %><br>
+    <%= g.text_field :genre %><br><br>
+
+    <%= g.label "Please enter the game's ESRB Rating:" %><br>
+    <%= g.text_field :esrb_rating %><br><br>
+    
+    <%= g.label "Please enter the game's platform:" %><br>
+    <%= g.text_field :platform %><br><br>
+    
+    <h5>Please select a publisher</h5>
+    <%= g.collection_select :publisher_id, Publisher.all, :id, :name%><br>
+
+    <p>Dont see the publisher for the game?<br>
+    Add it below:</p>
+
+    <%= g.fields_for :publisher do |p| %>
+        <%= render partial: "publishers/form", locals: {pp: p} %>
+    <% end %><br>
+    
+    <%= g.submit %>
+<% end %>
