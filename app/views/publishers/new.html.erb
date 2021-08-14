@@ -1,14 +1,4 @@
-<% if @publisher.errors.any? %>
-<div id="error_explanation">
-  <h2><%= pluralize(@publisher.errors.count, "error") %> prohibited this publisher from being saved:</h2>
-
-  <ul>
-    <% @publisher.errors.each do |error| %>
-      <li><%= error.full_message %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+<%= render partial: "layout/error", locals: {object: @publisher} %>
 
 <%= form_for @publisher do |p| %>
    <%= render partial: "form", locals: {pp: @publisher} %>
