@@ -13,7 +13,10 @@
 
     <h3>Reviews for the game</h3>
     <% @game.reviews.each do |review| %>
-        <%= review.comment %> by <%= review.user.username %>  <hr><br>
+        <%= review.props %>
+        <%= review.pro_comment %> 
+        <%= review.boos %> 
+        <%= review.con_comment%> by <%= review.user.username %>  <hr><br>
     <% end %>
    
 

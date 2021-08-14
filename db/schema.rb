@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_174531) do
+ActiveRecord::Schema.define(version: 2021_08_13_235548) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -32,13 +32,14 @@ ActiveRecord::Schema.define(version: 2021_08_13_174531) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "comment"
+    t.string "pro_comment"
     t.integer "user_id"
     t.integer "game_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "props"
     t.integer "boos"
+    t.string "con_comment"
   end
 
   create_table "users", force: :cascade do |t|
