@@ -1,5 +1,5 @@
 class PublishersController < ApplicationController
-    before_action: find_publisher, only: [:show, :edit, :update, :destroy]
+    before_action :find_publisher, only: [:show, :edit, :update, :destroy]
 
     def index 
         @publishers = Publisher.all
@@ -49,6 +49,6 @@ class PublishersController < ApplicationController
     end
 
     def find_publisher
-        @publisher = publisher.find_by_id(params[:id])
+        @publisher = Publisher.find_by_id(params[:id])
     end
 end

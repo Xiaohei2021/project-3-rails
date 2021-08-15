@@ -15,7 +15,7 @@ class Game < ApplicationRecord
             self.publisher = Publisher.find_or_create_by(hash_of_attributes)
         end
     end
-
+    
 
     scope :order_by_esrb_rating, -> {order(esrb_rating: :desc)}
 
