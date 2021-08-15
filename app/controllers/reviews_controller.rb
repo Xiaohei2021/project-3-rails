@@ -3,9 +3,16 @@ class ReviewsController < ApplicationController
     before_action :find_review, only: [:show, :destroy]
 
     def index
-        @reviews = Review.all
+        if params[:game_id] && @game = Game.find_by_id(params[:game_id])
+            @reviews = @game.reviews
+        else
+            @reviews = Review.all
+        end
     end
 
+
+    def show
+    end
 
     def new
         @game = Game.find_by_id(params[:game_id])
@@ -29,8 +36,6 @@ class ReviewsController < ApplicationController
        end
     end
 
-    def show
-    end
 
     def destroy
         @review.destroy

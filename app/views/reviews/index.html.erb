@@ -1,3 +1,10 @@
-<%= @reviews.each do |r| %>
-    <%= link_to r.pro_comment, review_path(r) %><br>
+<h1>Here are all the reviews</h1>
+<% @reviews.each do |r| %>
+
+    postive rating: <%=  r.props %><br>
+    postive comment: <%=  r.pro_comment %><br>
+    negative rating: <%=  r.boos %><br>
+    postive comment: <%=  r.con_comment %><br>
+    by <%= link_to r.user.username, review_path(r) %><hr>
+  
 <% end %>

@@ -1,15 +1,18 @@
+<%= render partial: "layouts/error", locals: {object: @review} %>
+
+
 <%= form_for([@game, @review]) do |f|  %>
     
     <%= f.label "Please rate the outstanding aspect of the game (1-5)" %><br>
     <%= f.select :props, options_for_select(1..5) %><br>
    
-    <%= f.label "Comment" %><br>
+    <%= f.label "Comment on Postive aspect of the game" %><br>
     <%= f.text_area :pro_comment%><br>
 
-    <%= f.label "Please rate the deficinecy aspect of the game (1-5)" %><br>
+    <%= f.label "Please rate the negative aspect of the game (1-5)" %><br>
     <%= f.select :boos, options_for_select(1..5) %><br>
 
-    <%= f.label "Comment" %><br>
+    <%= f.label "Comment on negative aspect of the game" %><br>
     <%= f.text_area :con_comment%><br>
 
     <%= f.hidden_field :game_id, value: @game.id%>

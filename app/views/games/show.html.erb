@@ -13,10 +13,11 @@
 
     <h3>Reviews for the game</h3>
     <% @game.reviews.each do |review| %>
-        <%= review.props %>
-        <%= review.pro_comment %> 
-        <%= review.boos %> 
-        <%= review.con_comment%> by <%= review.user.username %>  <hr><br>
+        by <%= review.user.username %><br>
+        Postive aspect rating: <%= review.props %><br>
+        Comment postive aspect: <%= review.pro_comment %> <br>
+        Negative aspect rating: <%= review.boos %> <br>
+        Comment on negative aspect: <%= review.con_comment%> <hr><br>
     <% end %>
    
 

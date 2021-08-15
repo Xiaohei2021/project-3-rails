@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   resources :reviews 
 
   resources :games do
-    resources :reviews, only: [:new, :create, :show]
+    resources :reviews, only: [:index, :new, :create, :show]
   end
 
 

@@ -3,6 +3,7 @@ class GamesController < ApplicationController
     before_action :find_game, only: [:show, :update, :edit, :destroy]
 
     def index 
+
         @games = Game.order_by_esrb_rating
     end
 
