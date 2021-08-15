@@ -1,0 +1,20 @@
+<h5>Please select a publisher</h5>
+<%= g.collection_select :publisher_id, Publisher.all, :id, :name%><br>
+
+<p>Dont see the publisher for the game?<br>
+Add it below:</p>
+
+<%= g.fields_for :publisher do |p| %>
+    <%= p.label "name" %><br>
+    <%= p.text_field :name %><br>
+
+    <%= p.label "formation" %><br>
+    <%= p.text_field :founded %><br>
+
+    <%= p.label "based_in" %><br>
+    <%= p.text_field :based_in %><br>
+
+    <%= p.label "awards" %><br>
+    <%= p.text_field :awards %><br>
+
+<% end %>

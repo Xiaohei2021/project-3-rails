@@ -18,7 +18,6 @@ class GamesController < ApplicationController
     def create
 
         @game = Game.new(game_params)
-        
         if @game.save
             redirect_to games_path
         else
@@ -49,7 +48,7 @@ class GamesController < ApplicationController
     private
     
     def game_params
-        params.require(:game).permit(:title, :genre, :esrb_rating, :platform, :publisher_id, publisher_attributes: [:name, :formation, :based_in, :awards])
+        params.require(:game).permit(:title, :genre, :esrb_rating, :platform, :publisher_id, publisher_attributes: [:name, :founded, :based_in, :awards])
     end
 
     def find_game

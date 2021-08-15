@@ -1,7 +1,7 @@
-<%= @review.props %><br>
-<%= @review.pro_comment %><br>
+postive rating: <%= @review.props %><br>
+comment on positive game aspect:<%= @review.pro_comment %><br>
 
-<%= @review.boos %><br>
-<%= @review.con_comment %><br>
+deficiency rating: <%= @review.boos %><br>
+Comment for negative game aspect: <%= @review.con_comment %><br>
 
 <%= link_to "Delete Review", review_path(@review), method: 'delete' %>

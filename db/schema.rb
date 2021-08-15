@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_08_13_235548) do
+ActiveRecord::Schema.define(version: 2021_08_15_180217) do
 
   create_table "games", force: :cascade do |t|
     t.string "title"
@@ -24,7 +24,7 @@ ActiveRecord::Schema.define(version: 2021_08_13_235548) do
 
   create_table "publishers", force: :cascade do |t|
     t.string "name"
-    t.date "formation"
+    t.date "founded"
     t.string "based_in"
     t.string "awards"
     t.datetime "created_at", precision: 6, null: false
