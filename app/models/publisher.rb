@@ -1,11 +1,17 @@
 class Publisher < ApplicationRecord
-    has_many :game
+    has_many :games
+    accepts_nested_attributes_for :games
 
-    # accepts_nested_attributes_for :game
+    def games_attributes=(games_attributes)
+        if !games_attributes["title"].blank? && !games_attributes["genre"].blank? && !games_attributes["esrb_rating"].blank? && !games_attributes["platform"].blank?
+            self.games = Game.find_or_create_by(games_attributes)
+        end
+    end
 
-    # def game_attributes=(hash_of_attributes)
-    #     if !hash_of_attributes["title"].blank? && !hash_of_attributes["genre"].blank? && !hash_of_attributes["esrb_rating"].blank? && !hash_of_attributes["platform"].blank?
-    #         self.game = Game.find_or_create_by(hash_of_attributes)
+    # def game_attributes=(game_attributes)
+    #     game_attributes.values.each do |game_attribute|
+    #       game = Game.find_or_create_by(game_attribute)
+    #       self.game << game
     #     end
     # end
 

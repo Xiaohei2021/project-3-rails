@@ -1,4 +1,5 @@
-<% @publisher.games.each do |game|  %>
+<% @games.each do |game|  %>
+    Game Id: <%= game.id%><br>
     Name: <%= link_to game.title, game_path(game) %><br>
     Genre: <%= game.genre %> <br>
     Rating: <%= game.esrb_rating %><hr><br> 

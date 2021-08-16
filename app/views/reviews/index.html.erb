@@ -1,5 +1,6 @@
-<h1>Here are all the reviews</h1>
+<h1>Here are all the reviews for </h1>
 <% @reviews.each do |r| %>
+    Review Id: <%= r.id %><br>
     postive rating: <%=  r.props %><br>
     postive comment: <%=  r.pro_comment %><br>
     negative rating: <%=  r.boos %><br>

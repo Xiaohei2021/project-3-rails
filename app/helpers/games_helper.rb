@@ -10,10 +10,10 @@ module GamesHelper
     def nested_game_index
         if @publisher 
             content_tag(:h1, "Here are all the games from #{@publisher.name}") 
-            render partial: "game_display" 
+            render partial: "nest_free_games" 
         else 
             content_tag(:h1, "Here are all the games")
-            render partial: "all_games_display" 
+            render partial: "nested_games" 
          end 
       
     end

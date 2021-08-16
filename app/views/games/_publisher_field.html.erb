@@ -1,5 +1,6 @@
 <h5>Please select a given publisher</h5>
-<%= g.collection_select :publisher_id, Publisher.all, :id, :name %><br>
+
+<%= g.collection_select :publisher_id, Publisher.all, :id, :name,{:prompt => "Select Publisher"} %><br>
 
 <p>Dont see the publisher for the game? Add it below:</p><br>
 
