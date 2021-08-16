@@ -4,15 +4,25 @@ class GamesController < ApplicationController
 
     def index 
 
-        @games = Game.order_by_esrb_rating
+        if params[:publisher_id] && @publisher = Publisher.find_by_id(params[:publisher_id])
+            @games = @publisher.games
+        else
+            @games = Game.order_by_esrb_rating
+        end
+
     end
 
     def show
     end
 
     def new
-        @game = Game.new
-        @game.build_publisher
+        if params[:publisher_id] && @publisher = @Publisher.find_by_id(params[:publisher_id])
+            @game = Game.new(publisher_id:params[:publisher_id])
+            @game = @publisher.games.build
+        else
+            @game = Game.new
+            @game.build_publisher
+        end
     end
 
     def create
@@ -48,7 +58,7 @@ class GamesController < ApplicationController
     private
     
     def game_params
-        params.require(:game).permit(:title, :genre, :esrb_rating, :platform, :publisher_id, publisher_attributes: [:name, :founded, :based_in, :awards])
+        params.require(:game).permit(:title, :genre, :esrb_rating, :platform, :publisher_id, publisher_attributes: [:name, :based_in, :awards])
     end
 
     def find_game

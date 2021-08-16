@@ -1,6 +1,19 @@
 
 <%= form_for(@game) do |g| %>
-    <%= render partial: "games/game_form", locals: {gp: g} %>
+    
+    <%= g.label "Please enter the game title:", required: true %><br>
+    <%= g.text_field :title%> <br><br>
+
+    <%= g.label "Please enter the game genre:" %><br>
+    <%= g.text_field :genre %><br><br>
+
+    <%= g.label "Please enter the game's ESRB Rating:" %><br>
+    <%= g.text_field :esrb_rating %><br><br>
+
+    <%= g.label "Please enter the game's platform:" %><br>
+    <%= g.text_field :platform %><br><br>
+
+    
     <%= fields_for_publisher(g)%>
     <br>
     <%= g.submit %>

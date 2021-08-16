@@ -1,10 +1,11 @@
 <h1>You have selected <%= @game.title%></h1>
-<h4>See below for all the availabel information and comment for this game: </h4>
+<h4>See below for all the available information and comment for this game: </h4>
 
     Game: <%= @game.title %><br>
     Game Genre: <%= @game.genre %><br>
     Game ESRB Rating: <%= @game.esrb_rating %><br>
     Game Platform: <%= @game.platform %><br>
+    Game Publisher: <%= @game.publisher.name%><br><hr>
     
 <%= link_to "Edit", edit_game_path(@game)%>
 <%= link_to "Write a review", new_game_review_path(@game)%>

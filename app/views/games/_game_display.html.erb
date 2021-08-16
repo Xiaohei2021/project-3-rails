@@ -1,0 +1,5 @@
+<% @publisher.games.each do |game|  %>
+    Name: <%= link_to game.title, game_path(game) %><br>
+    Genre: <%= game.genre %> <br>
+    Rating: <%= game.esrb_rating %><hr><br> 
+<% end %>

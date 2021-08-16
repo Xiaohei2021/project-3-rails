@@ -1,11 +1,15 @@
-    <%= pp.label "name" %><br>
-    <%= pp.text_field :name %><br>
 
-    <%= pp.label "formation" %><br>
-    <%= pp.date_field :founded %><br>
+<%= form_for @publisher do |p| %>
+    
+    <%= p.label "name" %><br>
+    <%= p.text_field :name %><br>
 
-    <%= pp.label "based_in" %><br>
-    <%= pp.text_field :based_in %><br>
+    <%= p.label "based_in" %><br>
+    <%= p.text_field :based_in %><br>
 
-    <%= pp.label "awards" %><br>
-    <%= pp.text_field :awards %><br>
+    <%= p.label "awards" %><br>
+    <%= p.text_field :awards %><br><br>
+    
+  
+   <%= p.submit %>
+ <% end %>

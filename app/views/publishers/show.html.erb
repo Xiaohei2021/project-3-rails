@@ -1,7 +1,8 @@
 <h1>You have selected <%= @publisher.name%>, here are all the availabel information for this publisher </h1>
 
-    <%= @publisher.name %><br>
-    <%= @publisher.formation %><br>
+    Publisher Name: <%= @publisher.name %><br>
+    Based in: <%= @publisher.based_in%><br>
+    Awards won: <%= @publisher.awards%><br>
 
-    <%= link_to "Edit", edit_publisher_path(@publisher)%>
+     <%= link_to "Edit", edit_publisher_path(@publisher)%>
     <%= link_to "Delete", publisher_path(@publisher), method: 'delete' %>

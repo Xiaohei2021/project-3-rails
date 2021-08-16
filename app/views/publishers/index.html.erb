@@ -1,5 +1,5 @@
 <h1>Here are all the Publisher</h1>
         
 <% @publishers.each do |p|  %>
-    <%= link_to p.name, publisher_path(p) %> - Founded: <%= p.formation %> <br>
+    <%= link_to p.name, publisher_path(p) %> - Founded: <%= p.based_in %> <br>
 <% end %>

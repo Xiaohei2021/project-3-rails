@@ -45,7 +45,7 @@ class PublishersController < ApplicationController
     private
 
     def publisher_params
-        params.require(:publisher).permit(:name, :founded, :based_in, :awards)
+        params.require(:publisher).permit(:name, :founded, :based_in, :awards, game_attributes: [:title, :genre, :esrb_rating, :platform])
     end
 
     def find_publisher

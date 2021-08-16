@@ -11,9 +11,9 @@ class Game < ApplicationRecord
         end
     end
 
-
-    validates :genre, :esrb_rating, :platform, presence: true
     validates :title, presence: true, uniqueness: {case_sensitive: false}, length: {in: 2..50} 
+    validates :genre, :esrb_rating, :platform, presence: true
+   
     validates :esrb_rating, numericality: {greater_than_or_equal_to: 0, less_than: 19}
 
 

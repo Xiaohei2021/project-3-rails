@@ -1,12 +1,4 @@
 <%= render partial: "layouts/error", locals: {object: @publisher} %>
 
-<%= form_for @publisher do |p| %>
-   <%= render partial: "form", locals: {pp: p} %>
 
-   <h4> Games being created by the publisher:</h4>
-   <%= p.fields_for :game do |p| %>
-      <%= render partial: "games/game_form", locals: {gp: p} %>
-  <% end %><br>
-
-  <%= p.submit %>
-<% end %>
+<%= render partial: "form"  %>
