@@ -5,11 +5,19 @@ class Game < ApplicationRecord
     
     accepts_nested_attributes_for :publisher
 
-    def publisher_attributes=(hash_of_attributes)
-        if !hash_of_attributes["name"].blank? && !hash_of_attributes["formation"].blank? && !hash_of_attributes["based_in"].blank? && !hash_of_attributes["awards"].blank?
-            self.publisher = Publisher.find_or_create_by(hash_of_attributes)
+    # def publishers_attributes=(hash_of_attributes)
+    #     if !hash_of_attributes["name"].blank? && !hash_of_attributes["formation"].blank? && !hash_of_attributes["based_in"].blank? && !hash_of_attributes["awards"].blank?
+    #         self.publisher = Publisher.find_or_create_by(hash_of_attributes)
+    #     end
+    # end
+
+
+    def publishers_attributes=(publisher_attributes)
+        publisher_attributes.values.each do |publisher_attribute|
+          publisher = Publisher.find_or_create_by(publisher_attribute)
+          self.publishers << publisher
         end
-    end
+      end
 
     validates :title, presence: true, uniqueness: {case_sensitive: false}, length: {in: 2..50} 
     validates :genre, :esrb_rating, :platform, presence: true
