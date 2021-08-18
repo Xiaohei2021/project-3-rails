@@ -5,4 +5,12 @@
     Awards won: <%= @publisher.awards%><br>
 
      <%= link_to "Edit", edit_publisher_path(@publisher)%>
-    <%= link_to "Delete", publisher_path(@publisher), method: 'delete' %>
+    <%= link_to "Delete", publisher_path(@publisher), method: 'delete' %><hr><br>
+
+
+    <h3>Here are all the games from <%= @publisher.name%> </h3>
+    <% @publisher.games.each do |g|%>
+        <ul>
+            <li><%= link_to g.title, game_path(g)%></li>
+        </ul>     
+    <%end%> 

@@ -1,7 +1,9 @@
+<h1>Here are all the games</h1>
+
 <% @games.each do |game|%>  
-    Game Id: <%= game.id%>
+    Game Id: <%= game.id%><br>
     Name: <%= link_to game.title, game_path(game) %><br>
     Genre: <%= game.genre %><br>
-    Rating: <%= game.esrb_rating %><br>
+    Rating: <%= game.esrb_rating %><br><br>
     
 <% end %>

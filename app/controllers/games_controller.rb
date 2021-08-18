@@ -3,9 +3,8 @@ class GamesController < ApplicationController
     before_action :find_game, only: [:show, :update, :edit, :destroy]
 
     def index 
-        
+
         if params[:publisher_id] && @publisher = Publisher.find_by_id(params[:publisher_id])
-            # byebug
             @games = @publisher.games
         else
             @games = Game.order_by_esrb_rating
@@ -17,7 +16,7 @@ class GamesController < ApplicationController
     end
 
     def new
-        if params[:publisher_id] && @publisher = @Publisher.find_by_id(params[:publisher_id])
+        if params[:publisher_id] && @publisher = Publisher.find_by_id(params[:publisher_id])
             @game = Game.new(publisher_id:params[:publisher_id])
             @game = @publisher.games.build
         else
@@ -32,7 +31,7 @@ class GamesController < ApplicationController
         if @game.save
             redirect_to games_path
         else
-            @game.build_publisher
+              @game.build_publisher
             render :new
         end
     end

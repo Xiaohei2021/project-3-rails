@@ -1,7 +1,7 @@
 <h1>You have selected <%= @game.title%></h1>
 <h4>See below for all the available information and comment for this game: </h4>
 
-    Game: <%= @game.title %><br>
+    Title: <%= @game.title %><br>
     Game Genre: <%= @game.genre %><br>
     Game ESRB Rating: <%= @game.esrb_rating %><br>
     Game Platform: <%= @game.platform %><br>
@@ -14,7 +14,7 @@
 
     <h3>Reviews for the game</h3>
     <% @game.reviews.each do |review| %>
-        by <%= review.user.username %><br>
+        by <%= link_to review.user.username, review_path(review) %><br>
         Postive aspect rating: <%= review.props %><br>
         Comment postive aspect: <%= review.pro_comment %> <br>
         Negative aspect rating: <%= review.boos %> <br>

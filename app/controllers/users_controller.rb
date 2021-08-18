@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        
         redirect_if_not_registered
         @user = User.find_by_id(params[:id])
         redirect_to '/' if !@user

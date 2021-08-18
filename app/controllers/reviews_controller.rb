@@ -29,7 +29,7 @@ class ReviewsController < ApplicationController
 
         #  byebug
        if @review.save
-            redirect_to game_review_path(@game, @review)
+            redirect_to game_reviews_path(@game, @review)
             #redirect_to game_path(@game)
        else
             render :new

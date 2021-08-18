@@ -7,13 +7,11 @@ module GamesHelper
         end
     end
 
-    def nested_game_index
+    def game_index_divergence
         if @publisher 
-            content_tag(:h1, "Here are all the games from #{@publisher.name}") 
-            render partial: "nest_free_games" 
+            render partial: "nested_games"
         else 
-            content_tag(:h1, "Here are all the games")
-            render partial: "nested_games" 
+            render partial: "nest_free_games" 
          end 
       
     end
