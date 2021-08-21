@@ -33,21 +33,23 @@
   color: black;
 }
 
-.header {
-  background-color: #f1f1f1;
-  padding: 20px;
-  text-align: center;
+
+
+
+.error_hint{
+  color: red;
+  background-color: rgb(22, 6, 158);
+
 }
 
 
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
 
 
-
- .field_with_errors {
-    padding: 2px;
-    background-color: red;
-    display: table;
-  }
 
 
 

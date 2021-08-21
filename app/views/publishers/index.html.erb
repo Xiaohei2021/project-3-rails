@@ -1,6 +1,6 @@
 <h1>Here are all the Publisher</h1>
         
-<% @publishers.each do |p|  %>
-    ID: <%= p.id %><br>
-    Name: <%= link_to p.name, publisher_path(p) %> - Founded: <%= p.based_in %><hr> <br>
+<% @publishers.each do |publisher|  %>
+    ID: <%= publisher.id %><br>
+    Name: <%= link_to publisher.name, publisher_games_path(publisher) %> - Founded: <%= publisher.based_in %><hr> <br>
 <% end %>

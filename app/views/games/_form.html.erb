@@ -1,5 +1,5 @@
 
-<%= form_for(@game) do |g| %>
+<%= form_for([@publisher, @game]) do |g| %>
     <%= render partial: "game_field", locals: {g: g} %>
     <%= fields_for_publisher(g)%>
     <br>

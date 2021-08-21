@@ -21,11 +21,11 @@ class Game < ApplicationRecord
 
     validates :title, presence: true, uniqueness: {case_sensitive: false}, length: {in: 2..50} 
     validates :genre, :esrb_rating, :platform, presence: true
-   
     validates :esrb_rating, numericality: {greater_than_or_equal_to: 0, less_than: 19}
 
 
     scope :order_by_esrb_rating, -> {order(esrb_rating: :desc)}
+    scope :order_by_publisher, -> {order(:publisher)}
 
 
     # def self.order_by_esrb_rating

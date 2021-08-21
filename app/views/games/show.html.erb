@@ -1,25 +1,40 @@
 <h1>You have selected <%= @game.title%></h1>
-<h4>See below for all the available information and comment for this game: </h4>
 
-    Title: <%= @game.title %><br>
-    Game Genre: <%= @game.genre %><br>
-    Game ESRB Rating: <%= @game.esrb_rating %><br>
-    Game Platform: <%= @game.platform %><br>
-    Game Publisher: <%= @game.publisher.name%><br><hr>
-    
-<%= link_to "Edit", edit_game_path(@game)%>
-<%= link_to "Write a review", new_game_review_path(@game)%>
-<%= link_to "Delete", game_path(@game), method: 'delete' %>
+<div class="frame">
+
+ <div class="segment">
+   <h2>Title: <%= @game.title %></h2>
+   <h5>Game Id: <%= @game.id %> </h5>
+
+   <h5>Game Genre: <%= @game.genre %><br></h5>
+   <h5>Game ESRB Rating: <%= @game.esrb_rating %><br></h5>
+   <h5> Game Platform: <%= @game.platform %><br></h5>
+   <h5>Game Publisher: <%= @game.publisher.name%><br><hr></h5>
+
+   <%= link_to "Edit", edit_game_path(@game)%>
+   <%= link_to "Write a review", new_game_review_path(@game)%>
+   <%= link_to "Delete", game_path(@game), method: 'delete' %>
+ </div>
+
+ <div class="segment">
+   <h2>Reviews for the game</h2>
+   <p>
+        <% @game.reviews.each do |review| %>
+            From: <%= link_to review.user.username, game_review_path(@game, review) %><br>
+            Review Id: <%= review.id %><br>
+            Postive aspect rating: <%= review.props %><br>
+            Comment postive aspect: <%= review.pro_comment %> <br>
+            Negative aspect rating: <%= review.boos %> <br>
+            Comment on negative aspect: <%= review.con_comment%> <hr><br>
+        <% end %>
+   </p>
+ </div>
+ 
+</div>
 
 
-    <h3>Reviews for the game</h3>
-    <% @game.reviews.each do |review| %>
-        by <%= link_to review.user.username, review_path(review) %><br>
-        Postive aspect rating: <%= review.props %><br>
-        Comment postive aspect: <%= review.pro_comment %> <br>
-        Negative aspect rating: <%= review.boos %> <br>
-        Comment on negative aspect: <%= review.con_comment%> <hr><br>
-    <% end %>
+
+ 
    
 
 

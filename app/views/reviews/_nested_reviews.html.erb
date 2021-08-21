@@ -1,0 +1,12 @@
+<h1>Here are all the reviews for the game <%= @game.title%> </h1>
+
+
+<% @reviews.each do |r| %>
+    Game Id: <%= r.game_id %> <br>
+    Review Id: <%= r.id %><br>
+    postive rating: <%=  r.props %><br>
+    postive comment: <%=  r.pro_comment %><br>
+    negative rating: <%=  r.boos %><br>
+    postive comment: <%=  r.con_comment %><br>
+    From User: <%= link_to r.user.username, game_review_path(@game,r) %><hr>
+<% end %>

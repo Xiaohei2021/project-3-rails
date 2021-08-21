@@ -14,9 +14,9 @@ Rails.application.routes.draw do
   # get '/auth/facebook/callback', to: 'sessions#omniauth_facebook' 
   # get '/auth/github/callback', to: 'sessions#omniauth_github'  
 
-  resources :users 
+  resources :users, only: [:new, :create, :show] 
 
-  resources :reviews 
+  resources :reviews, only: [:index, :show, :new, :create, :delete] 
 
   resources :games do
     resources :reviews, only: [:index, :new, :create, :show]

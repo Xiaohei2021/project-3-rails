@@ -1,10 +1,11 @@
 class GamesController < ApplicationController
-    before_action :redirect_if_not_registered
+    
     before_action :find_game, only: [:show, :update, :edit, :destroy]
-
+    layout "game"
+    
     def index 
 
-        if params[:publisher_id] && @publisher = Publisher.find_by_id(params[:publisher_id])
+        if params[:publisher_id] && @publisher = Publisher.find(params[:publisher_id])
             @games = @publisher.games
         else
             @games = Game.order_by_esrb_rating
@@ -17,7 +18,7 @@ class GamesController < ApplicationController
 
     def new
         if params[:publisher_id] && @publisher = Publisher.find_by_id(params[:publisher_id])
-            @game = Game.new(publisher_id:params[:publisher_id])
+            @game = Game.new(publisher_id: params[:publisher_id])
             @game = @publisher.games.build
         else
             @game = Game.new
@@ -26,8 +27,12 @@ class GamesController < ApplicationController
     end
 
     def create
-
         @game = Game.new(game_params)
+        if params[:publisher_id] 
+            @publisher = Publisher.find_by_id(params[:publisher_id])
+        end
+
+
         if @game.save
             redirect_to games_path
         else
@@ -63,6 +68,6 @@ class GamesController < ApplicationController
     end
 
     def find_game
-        @game = Game.find_by_id(params[:id])
+        @game = Game.find(params[:id])
     end
 end

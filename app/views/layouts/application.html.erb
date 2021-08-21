@@ -11,9 +11,9 @@
   </head>
 
   <body>
+
     <div class = "topnav">
-    
-      <% if registered? %>
+      <% if logged_in? %>
         <%= link_to "All Games", games_path %>
         <%= link_to "All publisher", publishers_path%>
         <%= link_to "All reviews", reviews_path %>
@@ -21,15 +21,21 @@
         <%= link_to "Add Publisher", new_publisher_path%>
         <%= link_to "Log Out", logout_path, method: 'delete' %>
       <% else %>
-      <%= link_to "Sign up", signup_path %> 
-      <%= link_to "Log In", login_path %> 
-     
+        <%= link_to "Sign up", signup_path %> 
+        <%= link_to "Log In", login_path %> 
       <% end %>
-     
     </div>
   
-  <div >
-    <%= yield %>  
-  </div>
+    <div >
+      <% flash.each do |type, msg|%>
+        <div class="error_hint">
+          <%= msg%>
+        </div>
+      <%end%>
+
+      <%= yield %>  
+    </div>
+    
   </body>
+
 </html>

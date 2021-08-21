@@ -1,9 +1,9 @@
 class ReviewsController < ApplicationController
-    before_action :redirect_if_not_registered
+    before_action :redirect_if_not_logged_in
     before_action :find_review, only: [:show, :destroy]
 
     def index
-        if params[:game_id] && @game = Game.find_by_id(params[:game_id])
+        if params[:game_id] && @game = Game.find(params[:game_id])
             @reviews = @game.reviews
         else
             @reviews = Review.order_by_props
@@ -12,6 +12,7 @@ class ReviewsController < ApplicationController
 
 
     def show
+        
     end
 
     def new
@@ -50,7 +51,7 @@ class ReviewsController < ApplicationController
     end
 
     def find_review
-        @review = Review.find_by(id: params[:id])                
+        @review = Review.find(params[:id])                
 
     end
 

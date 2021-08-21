@@ -4,9 +4,9 @@ module ApplicationHelper
         @current_user ||= User.find_by_id(session[:user_id])
     end
 
-    def registered?
+    def logged_in?
         !!current_user
     end
 
-   
+    
 end

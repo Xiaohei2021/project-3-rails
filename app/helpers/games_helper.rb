@@ -8,12 +8,12 @@ module GamesHelper
     end
 
     def game_index_divergence
+        # byebug
         if @publisher 
             render partial: "nested_games"
         else 
-            render partial: "nest_free_games" 
+            render partial: "all_games" 
          end 
-      
     end
 
      

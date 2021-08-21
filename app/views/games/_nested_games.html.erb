@@ -1,11 +1,18 @@
+<h1>Here are all the games from <%= @publisher.name%> </h1>
+ 
 
-<h1> Here are all the games from <%= @publisher.name%> </h1> 
 
-<% @games.each do |game|  %>
 
-    Game Id: <%= game.id%><br>
-    Name: <%= link_to game.title, publisher_games_path(game) %><br>
-    Genre: <%= game.genre %> <br>
-    Rating: <%= game.esrb_rating %><hr><br> 
-<% end %>
+<% @publisher.games.each do |g|%>
+    <ul>
+        <li><%= link_to g.title, publisher_game_path(@publisher, g)%> - <%= g.id%></li>
+    </ul>     
+<%end%> 
+
+
+<h3>Want to add another game from <%= @publisher.name %>?</h3>
+<%= link_to "Click Here", new_publisher_game_path(@publisher) %>
+
+
+
 

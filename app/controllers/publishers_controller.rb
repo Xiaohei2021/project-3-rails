@@ -50,6 +50,6 @@ class PublishersController < ApplicationController
     end
 
     def find_publisher
-        @publisher = Publisher.find_by_id(params[:id])
+        @publisher = Publisher.find(params[:id])
     end
 end
