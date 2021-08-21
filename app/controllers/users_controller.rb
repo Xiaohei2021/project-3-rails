@@ -4,12 +4,6 @@ class UsersController < ApplicationController
         @user =  User.new
     end
 
-    def show
-        
-        @user = User.find_by_id(params[:id])
-        redirect_to '/' if !@user
-    end
-
     def create
         # byebug
         @user = User.new(user_params)
@@ -19,6 +13,11 @@ class UsersController < ApplicationController
         else
             render :new
         end
+    end
+
+    def show
+        redirect_if_not_logged_in
+        @user = User.find_by_id(params[:id])
     end
 
   

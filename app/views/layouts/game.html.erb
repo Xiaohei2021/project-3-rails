@@ -18,10 +18,12 @@
   </div>
 
   <div class = "topnav">
-    <% if logged_in? %>
+    <% if logged_in?  %>
       <%= link_to "All Games", games_path %>
       <%= link_to "All publisher", publishers_path%>
       <%= link_to "All reviews", reviews_path %>
+      <%= link_to "Add Game", new_game_path %>
+      <%= link_to "Add Publisher", new_publisher_path%>
       <%= link_to "Log Out", logout_path, method: 'delete' %>
     <% else %>
       <%= link_to "Sign up", signup_path %> 

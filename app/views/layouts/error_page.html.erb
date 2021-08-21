@@ -1,4 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Project3Rails</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'errors', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+ 
+  <div>
+    <%= yield %>  
+  </div>
+  
+  </body>
+</html>
+
+
 <h1>UH OH, you encountered an error!!!</h1>
 <h3>See below for hints to your error:</h3>
 <%= @error_hint%><br><br>
-<%= link_to "Clicke Here", publishers_path %> to return to the Publisher's index
+<%= link_to "Clicke Here", publishers_path %> to return to the Publisher's index <br>
+<%= link_to "Clicke Here", games_path %> to return to the Game's index <br>
+<%= link_to "Clicke Here", reviews_path %> to return to the Review's index

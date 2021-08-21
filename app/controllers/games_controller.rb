@@ -1,5 +1,5 @@
 class GamesController < ApplicationController
-    
+    before_action :redirect_if_not_logged_in
     before_action :find_game, only: [:show, :update, :edit, :destroy]
     layout "game"
     

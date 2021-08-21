@@ -4,18 +4,20 @@ class SessionsController < ApplicationController
   end
   
   def new
+    
   end
 
   def create
     # byebug
-    user = User.find_by(username: params[:user][:username])
+    user = User.find_by_username(params[:user][:username])
       # if user && user.authenticate(params[:user][:password])
       if user.try(:authenticate, params[:user][:password])
         session[:user_id] = user.id
+        flash[:message] = "You are now logged in via username"
         redirect_to user_path(user)
     else
       flash[:message] = "Log In Failed, please try again"
-      redirect_to "/login"
+      redirect_to login_path
     end
   end
 
@@ -48,6 +50,11 @@ class SessionsController < ApplicationController
   #       redirect_to user_path(user)
   #   end
   # end
+
+  def profile
+        
+  end
+
 
   def destroy
     session.delete(:user_id)
