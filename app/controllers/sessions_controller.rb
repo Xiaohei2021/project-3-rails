@@ -51,9 +51,7 @@ class SessionsController < ApplicationController
   #   end
   # end
 
-  def profile
-        
-  end
+  
 
 
   def destroy
